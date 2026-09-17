@@ -41,7 +41,7 @@ button {
 }
 
 .task {
-    height: 10%;
+    min-height: 10%;
     width: 30%;
     background-color: #6D0808;
     color: white;
@@ -50,6 +50,10 @@ button {
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    /* align-items: center;
-    flex-wrap: wrap; */
+    align-items: center;
+    /* flex-wrap: wrap; */
+}
+.task svg {
+    height: 40px;
+    width: 40px;
 }
