@@ -2,12 +2,21 @@ const inputTag = document.querySelector("input");
 const buttonTag = document.querySelector("button");
 const taskContainer = document.querySelector(".taskContainer");
 
-buttonTag.addEventListener("click", function () {
+
+inputTag.addEventListener("keydown", function (event) {
+    let key = event.key;
+    if (key == "Enter") {
+        addTask();
+    }
+})
 
 
+buttonTag.addEventListener("click", addTask);
+
+function addTask() {
     const task = inputTag.value.trim();
-    inputTag.value ="";
-    if(task.length == 0){
+    inputTag.value = "";
+    if (task.length == 0) {
         alert("Task Cannot be empty");
         return;
     }
@@ -23,4 +32,4 @@ buttonTag.addEventListener("click", function () {
     })
     taskContainer.appendChild(boxEle);
 
-})
+}
