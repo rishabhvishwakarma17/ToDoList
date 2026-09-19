@@ -53,6 +53,7 @@ button {
     align-items: center;
     /* flex-wrap: wrap; */
 }
+
 .deleteIcon {
     height: 40px;
     width: 40px;
