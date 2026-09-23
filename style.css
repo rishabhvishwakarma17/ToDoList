@@ -58,3 +58,26 @@ button {
     height: 40px;
     width: 40px;
 }
+
+.icons {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.completeButton {
+    height: 100%;
+    width: 50%;
+    background-color: rgb(3, 255, 45);
+    color: white;
+    border-radius: 10px;
+    
+}
+.inCompleteButton {
+    height: 100%;
+    width: 50%;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+}

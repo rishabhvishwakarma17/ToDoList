@@ -22,7 +22,9 @@ function addTask() {
     const boxEle = document.createElement("div");
     boxEle.classList.add("task");
     boxEle.innerHTML = `<h2 id="taskText"> ${task}</h2>
-            <div><svg id="edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+            <div class="icons">   
+            <button class="completeButton" id="completeButton">Complete</button>
+            <svg id="edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
                     <path
                         d="M15.7279 9.57627L14.3137 8.16206L5 17.4758V18.89H6.41421L15.7279 9.57627ZM17.1421 8.16206L18.5563 6.74785L17.1421 5.33363L15.7279 6.74785L17.1421 8.16206ZM7.24264 20.89H3V16.6473L16.435 3.21231C16.8256 2.82179 17.4587 2.82179 17.8492 3.21231L20.6777 6.04074C21.0682 6.43126 21.0682 7.06443 20.6777 7.45495L7.24264 20.89Z">
                     </path>
@@ -39,6 +41,7 @@ function addTask() {
     const deleteButton = boxEle.querySelector(".deleteIcon");
     const editButton = boxEle.querySelector("#edit");
     const taskText = boxEle.querySelector("#taskText");
+    const completeButton = boxEle.querySelector("#completeButton");
 
     let isEditable = false;
     editButton.addEventListener("click", function () {
@@ -51,6 +54,29 @@ function addTask() {
         }
         isEditable = !isEditable;
     })
+
+    let  isComplete = false;
+    completeButton.addEventListener("click", function () {
+        if(isComplete){
+            completeButton.classList.remove("inCompleteButton");
+            completeButton.classList.add("completeButton");
+            completeButton.innerHTML = "Complete";
+            taskText.style.textDecoration = "none";
+            boxEle.style.backgroundColor = "#ad0606c3";
+            boxEle.style.order = -1;
+        }
+        else {
+            completeButton.classList.remove("completeButton");
+            completeButton.classList.add("inCompleteButton");
+            completeButton.innerHTML = "Incomplete";
+            taskText.style.textDecoration = "line-through";
+            boxEle.style.backgroundColor = "#6D0808"
+            boxEle.style.order = 1;
+        }
+        isComplete = !isComplete;
+    })
+
+
 
     deleteButton.addEventListener("click", function () {
         taskContainer.removeChild(boxEle);
